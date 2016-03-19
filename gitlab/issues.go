@@ -49,6 +49,10 @@ func NewGitlabIssueReader(privateToken, gitlabHost, project string) (*GitlabIssu
 	if err != nil {
 		return nil, err
 	}
+	issueTemplate, err := template.ParseFiles("markdown.template")
+	if err != nil {
+		return nil, err
+	}
 	return &GitlabIssueReader{
 		privateToken,
 		gitlabHost,
@@ -56,7 +60,7 @@ func NewGitlabIssueReader(privateToken, gitlabHost, project string) (*GitlabIssu
 		0,
 		[]GitlabIssue{},
 		1,
-		template.Must(template.ParseFiles("markdown.template")),
+		issueTemplate,
 	}, nil
 }
 
