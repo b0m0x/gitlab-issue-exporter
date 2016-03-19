@@ -1,0 +1,14 @@
+*This issue was automatically exported from Gitlab*
+
+## Issue
+{{.Issue.Description}}
+
+
+{{if .Comments}}
+### Comments from Gitlab
+{{range .Comments}}
+**{{.Author.Name}}** at {{.CreatedAt.Format "02 Jan 2006, 15:04"}}
+{{.Body}}
+--
+{{end}}
+{{end}}
